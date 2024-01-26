@@ -18,6 +18,7 @@
 @import "_footer.scss";
 @import "_carousel.scss";
 @import "_paginaPrincipal.scss";
+@import "_template-disabledPage.scss";
 @import "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@200;400;500;700&display=swap";
 
 :root {
@@ -96,8 +97,9 @@ ul {
 	padding: 0;
 }
 .arrow {
-	width: 15px;
-	height: 15px;
+	// width: 15px;
+	// height: 15px;
+	padding: 8px;
 	content: "";
 	border-right: var(--titulo) solid;
 	border-top: var(--titulo) solid;
