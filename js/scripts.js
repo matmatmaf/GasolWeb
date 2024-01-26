@@ -70,41 +70,44 @@ function gasolInit() {
 
     // Carrusel
     const slider = document.querySelector('.slider .slider-tarjetas .card-page-list');
-    const puntos = document.querySelectorAll('.slider .slider-tarjetas .punto');
-    const menuItems = document.querySelectorAll('.slider .slider-navegacion .menu-item');
-    console.log(menuItems);
-    sliderActiveCard(0);
-
-    // Recorrer TODOS los puntos
-    menuItems.forEach( ( item , i )=> {
-        item.addEventListener('click', () => {
-            let posicion  = i;
-            let nuevaPos = posicion * -100;
-            slider.style.transform = `translateX(${ nuevaPos }%)`
-
-        sliderActiveCard( i );
-        })
-    });
-
-    // Recorrer TODOS los puntos
-    puntos.forEach( ( punto , i )=> {
-        punto.addEventListener('click', () => {
-            let posicion  = i;
-            let nuevaPos = posicion * -100;
-            slider.style.transform = `translateX(${ nuevaPos }%)`
-
-        sliderActiveCard( i );
-        })
-    });
-
-    function sliderActiveCard( indice ) {
-         puntos.forEach( ( punto , i )=>{
-            menuItems[i].classList.remove('activo');
-            puntos[i].classList.remove('activo');
-        })
-        menuItems[indice].classList.add('activo');
-        puntos[indice].classList.add('activo');
+    if (slider) {
+        const puntos = document.querySelectorAll('.slider .slider-tarjetas .punto');
+        const menuItems = document.querySelectorAll('.slider .slider-navegacion .menu-item');
+        
+        sliderActiveCard(0);
+        
+        // Recorrer TODOS los puntos
+        menuItems.forEach( ( item , i )=> {
+            item.addEventListener('click', () => {
+                let posicion  = i;
+                let nuevaPos = posicion * -100;
+                slider.style.transform = `translateX(${ nuevaPos }%)`
+                
+                sliderActiveCard( i );
+            })
+        });
+        
+        // Recorrer TODOS los puntos
+        puntos.forEach( ( punto , i )=> {
+            punto.addEventListener('click', () => {
+                let posicion  = i;
+                let nuevaPos = posicion * -100;
+                slider.style.transform = `translateX(${ nuevaPos }%)`
+                
+                sliderActiveCard( i );
+            })
+        });
+        
+        function sliderActiveCard( indice ) {
+            puntos.forEach( ( punto , i )=>{
+                menuItems[i].classList.remove('activo');
+                puntos[i].classList.remove('activo');
+            })
+            menuItems[indice].classList.add('activo');
+            puntos[indice].classList.add('activo');
+        }
     }
+        
 
 }
 

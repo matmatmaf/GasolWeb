@@ -23,52 +23,59 @@ function gasolweb_lista_de_hechos($cantidad = -1) {
     <?php
 }
 
-function gasolweb_lista_de_proveedores($cantidad = -1) {
+function gasolweb_carousel($cantidad = -1, $categoria, $postType = 'post', $title = '',$addClass = '', $duplicado = true ) {
     $args = array(
-        'post_type' => 'gasol_proveedores',
-        'posts_per_page' => $cantidad,
-        'order' => 'ASC',
-        'orderby' => 'title',
+        'post_type'         => $postType,
+        'posts_per_page'    => $cantidad,
+        'cat'               => $categoria,
+        'order'             => 'ASC',
+        'orderby'            => 'title',
     );
-    $proveedor = new WP_Query($args);
-    ?>
-        <div class="footer-tittle">
-            <h3>Trabajamos con marcas lideres</h3>
-        </div>
-        <div class="footer-carrucel">
-            <div class="item-first"></div>
-            <?php 
-                echo '<ul class="lista-cliente">';
-                while($proveedor->have_posts()) {
-                    $proveedor->the_post();
-                    ?>
-                        <li class="item-cliente">
-                            <?php 
-                                if (has_post_thumbnail()) {
-                                    the_post_thumbnail('small', array('class' => 'imagen-card'));
-                                }
-                            ?>
-                        </li>
+    $postlist = new WP_Query($args);
+    if ($postlist->have_posts()) {
+        ?>
+            <div class="carousel <?php echo $addClass; ?>">
+                <div class="carousel-title">
+                    <h3><?php echo $title; ?></h3>
+                </div>
+                <div class="carousel-body">
+                    <div class="item-first"></div>
                     <?php 
-                }
-                rewind_posts();
-                while($proveedor->have_posts()) {
-                    $proveedor->the_post();
-                    ?>
-                        <li class="item-cliente">
-                            <?php 
-                                if (has_post_thumbnail()) {
-                                    the_post_thumbnail('small', array('class' => 'imagen-card'));
-                                }
+                        echo '<ul class="carousel-list">';
+                        while($postlist->have_posts()) {
+                            $postlist->the_post();
                             ?>
-                        </li>
-                    <?php 
-                }
-                echo '</ul>';
-            ?> 
-            <div class="item-last"></div>
-        </div>
-    <?php
+                                <li class="carousel-item">
+                                    <?php 
+                                        if (has_post_thumbnail()) {
+                                            the_post_thumbnail('small', array('class' => 'imagen-card'));
+                                        }
+                                    ?>
+                                </li>
+                            <?php 
+                        }
+                        if ( $duplicado ){
+                            rewind_posts();
+                            while($postlist->have_posts()) {
+                                $postlist->the_post();
+                                ?>
+                                    <li class="item-cliente duplicado">
+                                        <?php 
+                                            if (has_post_thumbnail()) {
+                                                the_post_thumbnail('small', array('class' => 'imagen-card'));
+                                            }
+                                        ?>
+                                    </li>
+                                <?php 
+                            }
+                        }
+                        echo '</ul>';
+                    ?> 
+                    <div class="item-last"></div>
+                </div>
+            </div>
+        <?php
+    }
 }
 
 function gasolweb_lista_de_productos_y_servicios(int $cantidad = -1, $categorias ) {
@@ -161,7 +168,6 @@ function gasolweb_lista_imagenes_post(int $cantidad = -1, $categoria, $duplicado
                 $args = array(
                     'post_type'         => 'post',
                     'posts_per_page'    => $cantidad,
-                    'cat'               => $categoria,
                     'orderby'           => 'post_title',
                     'order'             => 'ASC',
                 );

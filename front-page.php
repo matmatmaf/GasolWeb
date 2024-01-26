@@ -40,7 +40,7 @@
                     'theme_location'        => 'menu-principal',
                     'container'             => 'nav',
                     'container_class'       => 'menu-principal',
-                    'menu_class'            => 'menu-principal',
+                    'menu_class'            => 'menu-principal-list',
                 );
                 wp_nav_menu($args);
                 ?>
@@ -66,8 +66,8 @@
             <?php get_template_part('template-parts/slider-pages'); ?>
         </section>
 
-        <section class="footer-template">
-            <?php gasolweb_lista_de_proveedores();?>
+        <section class="marcas">
+            <?php gasolweb_carousel(-1, 'gasol_marcas','Trabajamos con marcas lideres');?>
         </section>
 
         <section class="contenido-template contenido-pagina-principal">
@@ -77,8 +77,8 @@
             <?php endwhile; ?>
         </section>
 
-        <div class="footer-template en-grilla">
-            <?php get_template_part('template-parts/footer-template-clientes'); ?>
+        <div class="footer-template">
+            <?php get_template_part('template-parts/footer-template-clientes',null,array('class'=>'en-grilla')); ?>
         </div>
     </main>
 

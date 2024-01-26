@@ -40,7 +40,7 @@
                     'theme_location'        => 'menu-principal',
                     'container'             => 'nav',
                     'container_class'       => 'menu-principal',
-                    'menu_class'            => 'menu-principal',
+                    'menu_class'            => 'menu-principal-list',
                 );
                 wp_nav_menu($args);
                 ?>

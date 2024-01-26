@@ -1,0 +1,19 @@
+{
+  "name": "gasolweb",
+  "version": "1.0.0",
+  "description": "La página esta soportada por wordpress. Este proyecto es un tema para wordpress 6.4.2.\r Para la implementación se necesita el pligin creado en gasolweb-post-types/gasolweb-post-types.php\r La carga del tema en wordpress se realiza manualmente. Es decir, se debe crear la carpeta theme/gasolweb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "seprymat",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "dependencies": {
+    "gulp-sass": "^5.1.0",
+    "node-sass": "^9.0.0",
+    "sass": "^1.70.0"
+  }
+}
