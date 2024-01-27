@@ -3,8 +3,8 @@
 	.carousel-title {
 		display: none;
 		h3 {
-			color: $color_1;
-			background-color: $background-color_1;
+			color: var(--texto);
+			background-color: var(--grisClaro);
 			padding: 0px 10px;
 			&::before {
 				content: '';

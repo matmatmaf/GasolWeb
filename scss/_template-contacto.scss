@@ -1,0 +1,99 @@
+.template-contacto {
+    .contenido-pagina {
+        .titulo, h3 {
+            color: var(--tutilo);
+            margin-bottom: var(--marginPortada);
+        }
+    }
+    .contenido-pagina {
+        hr {
+            display: block;
+            margin: 12px 0px;
+            width: 100%;
+            border-color: var(--tutilo);
+        }
+        .col-2 {
+            display: grid;
+            align-items: start;
+            gap: 4.5%;
+            .col-derecha {
+                .wp-block-group {
+                    gap: 0px;
+                }
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: space-evenly;
+                padding-bottom: 40px;
+                h2 {
+                    font-size: 25px;
+                    font-weight: 600;
+                    margin: 0px;
+                }
+                p {
+                    font-size: 25px;
+                    font-weight: 100;
+                    margin: 0px;
+                }
+            }
+            .redesSociales {
+                display: flex;
+                gap: 28px;
+                margin-top: 60px;
+                .redSocial {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 23px;
+                    background-color: var(--blanco);
+                    height: 80px;
+                    width: 80px;
+                    position: relative;
+                    color: var(--tutilo);
+                    i {
+                        font-size: 40px;
+                    }
+                }
+            }
+            .col-izquierda {
+                input, textarea {
+                    width: 100%;
+                    border: 0;
+                    margin: 13px 0px;
+                    height: 47px;
+                    padding: 6px 4%;
+                }
+                textarea {
+                    height: unset;
+                }
+                [type="submit"] {
+                    color: var(--blanco);
+                    background-color: var(--azulGasol);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $screeeDesktop) {
+    .template-contacto {
+        .contenido-pagina {
+            margin: 0px var(--marginContainerMovile);
+            .col-2 {
+                grid-template-columns: 1fr 1fr;
+                .col-derecha {
+                    padding: 0px;
+                }
+                .col-izquierda {
+                    [type="submit"] {
+                        width: 155px;
+                        margin: 0 0 0 auto;
+                        float: inline-end;
+                    }
+                }
+            }
+        }
+    }
+    
+}

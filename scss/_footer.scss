@@ -1,8 +1,8 @@
 .site-footer {
 	display: grid;
 	.contenido-contacto {
-		background-color: $background-color_2;
-		color: $color_3;
+		background-color: var(--azulGasol);
+		color: var(--blanco);
 		display: grid;
 		grid-template-columns: 1fr;
 		justify-items: center;
@@ -30,19 +30,19 @@
 				font-size: 44px;
 				font-weight: 500;
 				margin: 0px 0px 20px 0px;
-				color: $color_3;
+				color: var(--blanco);
 			}
 			h2 {
-				color: $color_3;
+				color: var(--blanco);
 			}
 			p {
-				color: $color_3;
+				color: var(--blanco);
 			}
 		}
 	}
 	.contenido-footer {
-		background-color: $background-color_4;
-		color: $color_3;
+		background-color: var(--grisOscuro);
+		color: var(--blanco);
 		display: flex;
 		flex-direction: column-reverse;
 		flex-wrap: nowrap;

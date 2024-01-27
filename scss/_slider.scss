@@ -102,7 +102,7 @@
 					justify-content: space-around;
 					margin-left: 4%;
 					>* {
-						color: $color_3;
+						color: var(--blanco);
 					}
 					.categoria {
 						text-transform: uppercase;
@@ -115,14 +115,14 @@
 						p {
 							font-size: 18px;
 							font-weight: 400;
-							color: $color_3;
+							color: var(--blanco);
 						}
 					}
 					.enlace {
 						a {
 							padding: 8px;
 							border: 1px solid var(--blanco);
-							color: $color_3;
+							color: var(--blanco);
 						}
 					}
 				}
@@ -158,10 +158,10 @@
 			height: 8px;
 			margin: 5px;
 			border-radius: 50%;
-			background-color: $background-color_4;
+			background-color: var(--grisOscuro);
 		}
 		.punto.activo {
-			background-color: $background-color_2;
+			background-color: var(--azulGasol);
 		}
 	}
 }

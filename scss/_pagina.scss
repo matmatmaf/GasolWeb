@@ -16,13 +16,13 @@
 		object-position: center center;
 	}
 	.titulo {
-		color: $color_5;
+		color: var(--grisOscuro);
 		font-size: 4rem;
 		font-weight: 600;
 		line-height: 3rem;
 	}
 	.clase {
-		color: $color_5;
+		color: var(--grisOscuro);
 		font-size: 1.5rem;
 	}
 	.textoPortada {
@@ -51,20 +51,21 @@
 			position: absolute;
 			top: 50%;
 			transform: translatey(-50%);
-			padding: 0px calc(var(--marginContainerMovile)*3);
+			padding: 0px 15%;
 		}
 		.titulo {
-			color: $color_3;
+			color: var(--blanco);
 		}
 		.clase {
-			color: $color_3;
+			color: var(--blanco);
 		}
 	}
 	.portada.portada-pagina {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		background-color: $background-color_3;
+		background-color: var(--blanco);
+		z-index: -2;
 		img {
 			object-fit: contain;
 			max-height: 100px;

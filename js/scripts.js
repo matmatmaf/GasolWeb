@@ -4,13 +4,13 @@ function gasolWordPress() {
     hamburger.addEventListener('click', function() {
         const menuPrincipal = document.querySelector('.contenedor-menu');
         menuPrincipal.classList.toggle('mostrar');
-    })
+    });
 
     const submenu = document.querySelector('.menu-item-has-children a');
+    const menuList = document.querySelector('.sub-menu');
     submenu.addEventListener('click', function() {
-        const menuList = document.querySelector('.sub-menu');
         menuList.classList.toggle('mostrar');
-    })
+    });
 }
 
 function gasolInit() {

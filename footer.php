@@ -1,4 +1,4 @@
-        <footer class="site-footer contenedor">
+        <footer class="site-footer">
             <div class="contenido-contacto">
                 <div class="mapa">
                     <?php dynamic_sidebar('footer_right'); ?>
@@ -10,8 +10,7 @@
             </div>
 
             <div class="contenido-footer">
-                <p class="copyright">Todos los derechos reservados. <?php echo get_bloginfo('name') . " " . date('Y'); ?>  </p>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/Gasol_Marca_Blanca.png" alt="Logo Gasol">
+                <?php get_template_part('template-parts/footer-page'); ?>
             </div>
         </footer>
 

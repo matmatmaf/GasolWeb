@@ -4,7 +4,7 @@
 		position: absolute;
 		top: 0;
 		z-index: 10;
-		background-color: $background-color_5;
+		background-color: transparent;
 	}
 	.portada {
 		z-index: -1;
@@ -21,7 +21,7 @@
 			bottom: 0%;
 			padding-bottom: 40px;
 			.titulo {
-				color: $color_3;
+				color: var(--blanco);
 				font-weight: 600;
 			}
 		}
@@ -38,7 +38,7 @@
 		.barra-navegacion {
 			.menu-principal {
 				> ul > li > a {
-					color: $color_3;
+					color: var(--blanco);
 				}
 			}
 			.contenedor-cabecera {
@@ -56,6 +56,14 @@
 						&:after {
 							border: solid var(--blanco);
 							border-width: 0 3px 3px 0;
+						}
+					}
+				}
+				.menu-principal {
+					> ul {	  
+						> .menu-item::before {
+							background: var(--azulGasol);
+							opacity: 1;
 						}
 					}
 				}

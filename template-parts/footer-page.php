@@ -1,0 +1,2 @@
+<p class="copyright">Todos los derechos reservados. <?php echo get_bloginfo('name') . " " . date('Y'); ?>  </p>
+<img src="<?php echo get_template_directory_uri(); ?>/img/Gasol_Marca_Blanca.png" alt="Logo Gasol">

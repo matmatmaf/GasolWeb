@@ -1,24 +1,12 @@
-/*
-    Theme Name: Gasol Web
-    Theme URI:
-    Author: Maximiliano Teodosio
-    Author URI: https://www.linkedin.com/in/maximiliano-adrian-teodosio-0b54b198/
-    Description: Web con fines de mostrar servicios y certificaciones
-    Version: 1.0.0
-    License: GNU General Public License v2 or later
-    License URI: http://www.gnu.org/licenses/gpl-2.0.html
-    Tags: matafuefos, iram, opds, revision, cilindro, seguridad, oxigenoerapia 
-    Text Domain: gasolplatense.com.ar
-*/
-
 @import "_variables.scss";
 @import "_slider.scss";
-@import "_menuPrincipal.scss";
+@import "_menus.scss";
 @import "_pagina.scss";
 @import "_footer.scss";
 @import "_carousel.scss";
 @import "_paginaPrincipal.scss";
 @import "_template-disabledPage.scss";
+@import "_template-contacto.scss";
 @import "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@200;400;500;700&display=swap";
 
 :root {
@@ -51,43 +39,43 @@ html {
 	}
 }
 body {
-	font-family: $font-family_1;
+	font-family: var(--fuentePrincipal);
 	font-size: 1.8rem;
-	background-color: $background-color_1;
+	background-color: var(--grisClaro);
 }
 a {
 	text-decoration: none;
 }
 p {
-	color: $color_1;
+	color: var(--texto);
 }
 h1 {
-	color: $color_2;
+	color: var(--titulo);
 	margin: 1rem 0rem;
 	font-size: 5rem;
 }
 h2 {
-	color: $color_2;
+	color: var(--titulo);
 	margin: 1rem 0rem;
 	font-size: 4rem;
 }
 h3 {
-	color: $color_2;
+	color: var(--titulo);
 	margin: 1rem 0rem;
 	font-size: 3rem;
 }
 h4 {
-	color: $color_2;
+	color: var(--titulo);
 	margin: 1rem 0rem;
 	font-size: 2rem;
 }
 h5 {
-	color: $color_2;
+	color: var(--titulo);
 	margin: 1rem 0rem;
 	font-size: 1.75rem;
 }
 h6 {
-	color: $color_2;
+	color: var(--titulo);
 	margin: 1rem 0rem;
 	font-size: 1.5rem;
 }
@@ -128,7 +116,7 @@ ul {
 	margin: 0px var(--marginContainerMovile) 40px var(--marginContainerMovile);
 }
 .contenido-pagina {
-	color: $color_1;
+	color: var(--texto);
 	hr {
 		display: none;
 	}
@@ -140,7 +128,7 @@ ul {
 		}
 	}
 	p {
-		color: $color_1;
+		color: var(--texto);
 		margin-top: 0px;
 		strong {
 			color: var(--azulGasol);
@@ -168,7 +156,7 @@ ul {
 	}
 }
 .contenido-gases {
-	color: $color_1;
+	color: var(--texto);
 	.card-gases {
 		.titulo {
 			display: block;
@@ -183,7 +171,7 @@ ul {
 	}
 }
 .contenido-classes-gases {
-	color: $color_1;
+	color: var(--texto);
 }
 .sidebar-pagina {
 	display: block;
@@ -206,7 +194,7 @@ ul {
 			margin: 20px 0px;
 			a {
 				font-weight: 600;
-				color: $color_1;
+				color: var(--texto);
 				margin: 5px 30px 5px 0px;
 				text-transform: uppercase;
 				&:last-child {
@@ -243,7 +231,7 @@ ul {
 	.contenido {
 		border-top: solid var(--titulo);
 		h3 {
-			color: $color_2;
+			color: var(--titulo);
 			margin: 10px 0px;
 		}
 		.cabecera {
@@ -336,7 +324,7 @@ ul {
 	.titulo {
 		font-weight: 600;
 		font-size: 2.5rem;
-		color: $color_2;
+		color: var(--titulo);
 	}
 }
 
@@ -345,8 +333,10 @@ ul {
 		margin: 0px;
 		margin-bottom: 40px;
 	}
-	.contenido-pagina {
+	.contenido-grilla {
 		grid-column: 2;
+	}
+	.contenido-pagina {
 		h3 {
 			margin: 0px;
 		}
@@ -358,7 +348,7 @@ ul {
 			width: 40px;
 			margin-left: 10px;
 			margin-right: 10px;
-			border-color: $border-color_1;
+			border-color: var(--azulGasol);
 		}
 	}
 	.contenido-gases {
