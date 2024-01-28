@@ -62,33 +62,33 @@ function gasolplatense_post_type() {
 	
 	//Proveeedores
 	$labels2 = array(
-		'name'                  => _x( 'Proveedores', 'Post Type General Name', 'gasolplatense.com.ar' ),
-		'singular_name'         => _x( 'Proveedor', 'Post Type Singular Name', 'gasolplatense.com.ar' ),
-		'menu_name'             => __( 'Proveedores', 'gasolplatense.com.ar' ),
-		'name_admin_bar'        => __( 'Proveedor', 'gasolplatense.com.ar' ),
+		'name'                  => _x( 'Marcas', 'Post Type General Name', 'gasolplatense.com.ar' ),
+		'singular_name'         => _x( 'Marca', 'Post Type Singular Name', 'gasolplatense.com.ar' ),
+		'menu_name'             => __( 'Marcas', 'gasolplatense.com.ar' ),
+		'name_admin_bar'        => __( 'Marca', 'gasolplatense.com.ar' ),
 		'archives'              => __( 'Archivo', 'gasolplatense.com.ar' ),
 		'attributes'            => __( 'Atributos', 'gasolplatense.com.ar' ),
-		'parent_item_colon'     => __( 'Proveedor Padre', 'gasolplatense.com.ar' ),
-		'all_items'             => __( 'Todos Los Proveedores', 'gasolplatense.com.ar' ),
-		'add_new_item'          => __( 'Agregar Proveedor', 'gasolplatense.com.ar' ),
-		'add_new'               => __( 'Agregar Proveedor', 'gasolplatense.com.ar' ),
-		'new_item'              => __( 'Nueva Proveedor', 'gasolplatense.com.ar' ),
-		'edit_item'             => __( 'Editar Proveedor', 'gasolplatense.com.ar' ),
-		'update_item'           => __( 'Actualizar Proveedor', 'gasolplatense.com.ar' ),
-		'view_item'             => __( 'Ver Proveedor', 'gasolplatense.com.ar' ),
-		'view_items'            => __( 'Ver Proveedores', 'gasolplatense.com.ar' ),
-		'search_items'          => __( 'Buscar Proveedor', 'gasolplatense.com.ar' ),
+		'parent_item_colon'     => __( 'Marca Padre', 'gasolplatense.com.ar' ),
+		'all_items'             => __( 'Todos Las Marcas', 'gasolplatense.com.ar' ),
+		'add_new_item'          => __( 'Agregar Marca', 'gasolplatense.com.ar' ),
+		'add_new'               => __( 'Agregar Marca', 'gasolplatense.com.ar' ),
+		'new_item'              => __( 'Nueva Marca', 'gasolplatense.com.ar' ),
+		'edit_item'             => __( 'Editar Marca', 'gasolplatense.com.ar' ),
+		'update_item'           => __( 'Actualizar Marca', 'gasolplatense.com.ar' ),
+		'view_item'             => __( 'Ver Marca', 'gasolplatense.com.ar' ),
+		'view_items'            => __( 'Ver Marcas', 'gasolplatense.com.ar' ),
+		'search_items'          => __( 'Buscar Marca', 'gasolplatense.com.ar' ),
 		'not_found'             => __( 'No Encontrado', 'gasolplatense.com.ar' ),
 		'not_found_in_trash'    => __( 'No Encontrado en Papelera', 'gasolplatense.com.ar' ),
-		'insert_into_item'      => __( 'Insertar en Proveedor', 'gasolplatense.com.ar' ),
-		'uploaded_to_this_item' => __( 'Agregado en Proveedor', 'gasolplatense.com.ar' ),
-		'items_list'            => __( 'Lista de Proveedores', 'gasolplatense.com.ar' ),
-		'items_list_navigation' => __( 'Navegación de Proveedores', 'gasolplatense.com.ar' ),
-		'filter_items_list'     => __( 'Filtrar Proveedores', 'gasolplatense.com.ar' ),
+		'insert_into_item'      => __( 'Insertar en Marca', 'gasolplatense.com.ar' ),
+		'uploaded_to_this_item' => __( 'Agregado en Marca', 'gasolplatense.com.ar' ),
+		'items_list'            => __( 'Lista de Marcas', 'gasolplatense.com.ar' ),
+		'items_list_navigation' => __( 'Navegación de Marcas', 'gasolplatense.com.ar' ),
+		'filter_items_list'     => __( 'Filtrar Marcas', 'gasolplatense.com.ar' ),
 	);
 	$args2 = array(
-		'label'                 => __( 'Proveedor', 'gasolplatense.com.ar' ),
-		'description'           => __( 'Proveedores para el Sitio Web', 'gasolplatense.com.ar' ),
+		'label'                 => __( 'Marca', 'gasolplatense.com.ar' ),
+		'description'           => __( 'Marcas para el Sitio Web', 'gasolplatense.com.ar' ),
 		'labels'                => $labels2,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'hierarchical'          => true, // true = posts , false = paginas
@@ -106,7 +106,7 @@ function gasolplatense_post_type() {
 		'capability_type'       => 'page',
 	);
 	register_post_type( 'gasolplatense_hechos', $args );
-	register_post_type( 'gasol_proveedores', $args2 );
+	register_post_type( 'gasol_marcas', $args2 );
 }
 add_action( 'init', 'gasolplatense_post_type', 0);
 
