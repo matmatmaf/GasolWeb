@@ -91,6 +91,7 @@ function gasolplatense_post_type() {
 		'description'           => __( 'Marcas para el Sitio Web', 'gasolplatense.com.ar' ),
 		'labels'                => $labels2,
 		'supports'              => array( 'title', 'editor', 'thumbnail' ),
+		'taxonomies'         	=> array( 'post_tag' ),
 		'hierarchical'          => true, // true = posts , false = paginas
 		'public'                => true,
 		'show_ui'               => true,
