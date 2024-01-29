@@ -8,7 +8,7 @@
     <main>
         <section class="portada portada-margin">
             <div class="">
-                <?php dynamic_sidebar('footer_right'); ?>
+                <?php dynamic_sidebar('thunbnail_page'); ?>
             </div>
         </section>
  

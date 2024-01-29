@@ -13,10 +13,11 @@
 		.list-icon {
 			position: absolute;
 			left: 0;
-			svg {
-				height: 4rem;
-				stroke: var(--blanco);
-			}
+			padding-left: 40px;
+		}
+
+		.list-icon {
+			cursor: pointer;
 		}
 		.logo {
 			svg {
@@ -53,7 +54,7 @@
 				&:after {
 					content: '';
 					border: solid var(--blanco);
-					border-width: 0 3px 3px 0;
+					border-width: 0 2px 2px 0;
 					display: inline-block;
 					padding: 3px;
 					margin: 10px;
@@ -80,12 +81,10 @@
 		transition-duration: 300ms;
 		width: 100%;
 	}
-	.menu-principal {
-		.current_page_item {
-			font-weight: bold;
-		}
-	}
     .menu-principal {
+		.current_page_item, li.current-menu-parent > a {
+			font-weight: 600;
+		}
         > a {
             color: var(--blanco);
             cursor: pointer;
@@ -221,7 +220,7 @@
 					justify-content: flex-start;
 					&:after {
 						border: solid var(--azulGasol);
-						border-width: 0 3px 3px 0;
+						border-width: 0 1px 1px 0;
 					}
 				}
 				.sub-menu {

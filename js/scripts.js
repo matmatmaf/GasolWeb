@@ -1,9 +1,11 @@
 function gasolWordPress() {
     // Menu hamburguesa
-    const hamburger = document.querySelector('.list-icon svg');
+    const hamburger = document.querySelector('.list-icon');
+    const icon = hamburger.querySelector('.burger-menu');
     hamburger.addEventListener('click', function() {
         const menuPrincipal = document.querySelector('.contenedor-menu');
         menuPrincipal.classList.toggle('mostrar');
+        icon.classList.toggle('cross');
     });
 
     const submenu = document.querySelector('.menu-item-has-children a');

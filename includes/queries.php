@@ -59,7 +59,7 @@ function gasolweb_carousel($cantidad = -1, $categoria, $postType = 'post', $titl
                             while($postlist->have_posts()) {
                                 $postlist->the_post();
                                 ?>
-                                    <li class="item-cliente duplicado">
+                                    <li class="carousel-item duplicado">
                                         <?php 
                                             if (has_post_thumbnail()) {
                                                 the_post_thumbnail('small', array('class' => 'imagen-card'));

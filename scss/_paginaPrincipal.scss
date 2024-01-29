@@ -30,6 +30,7 @@
 .contenido-pagina-principal {
 	display: grid;
 	grid-template-columns: 1fr;
+	column-gap: 4%;
 }
 
 
@@ -82,7 +83,7 @@
 		}
 	}
 	.contenido-pagina-principal {
-		margin: 0px var(--marginContainerMovile);
+		margin: 0px var(--marginContainerMovile) !important;
 		grid-template-columns: 1fr 3fr;
 		align-items: center;
 	}

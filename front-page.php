@@ -67,7 +67,7 @@
         </section>
 
         <section class="marcas">
-            <?php gasolweb_carousel(-1, 'gasol_marcas','Trabajamos con marcas lideres');?>
+            <?php gasolweb_carousel(-1, array(),'gasol_marcas','Trabajamos con marcas lideres');?>
         </section>
 
         <section class="contenido-template contenido-pagina-principal">
