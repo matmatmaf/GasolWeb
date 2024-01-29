@@ -8,10 +8,11 @@ function gasolWordPress() {
         icon.classList.toggle('cross');
     });
 
-    const submenu = document.querySelector('.menu-item-has-children a');
+    const submenu = document.querySelector('.menu-item-has-children');
     const menuList = document.querySelector('.sub-menu');
     submenu.addEventListener('click', function() {
         menuList.classList.toggle('mostrar');
+        submenu.classList.toggle('clicked');
     });
 }
 

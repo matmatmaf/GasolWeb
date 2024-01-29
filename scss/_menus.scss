@@ -60,6 +60,7 @@
 					margin: 10px;
 					transform: rotate(45deg);
 					-webkit-transform: rotate(45deg);
+					transition: transform 200ms linear;
 				}
 			}
 			.sub-menu {
@@ -84,6 +85,12 @@
     .menu-principal {
 		.current_page_item, li.current-menu-parent > a {
 			font-weight: 600;
+		}
+		li.current-menu-parent > a:after {
+			border-width: 0px 3px 3px 0px;
+		}
+		li.clicked > a:after {
+			transform: rotate(-135deg);
 		}
         > a {
             color: var(--blanco);
