@@ -1,0 +1,18 @@
+.relacionados {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-top: 2px solid var(--blanco);
+    > h2, > h3, > h4 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    > a {
+        background-color: var(--blanco);
+        color: var(--titulo);
+        padding: 14px 25px;
+    }
+}

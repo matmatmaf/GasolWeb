@@ -137,16 +137,23 @@ function gasolweb_insumos_e_indumentaria(int $cantidad = -1, $categoria ) {
                         <div class="contenido">
                             <?php echo '<div class="entry-info">';  ?>
                             <?php the_content(); ?>
-                            <?php the_tags('<div class="tags">', '' ,'</div>'); ?>
-                            <?php echo '</div>';  ?>
+                            <div class="tags">
                             <?php 
-                                $content = apply_filters( 'the_content', get_the_content() );
-                                $galery = get_media_embedded_in_content( $content, array( 'galery' ) );
+                                $tags = get_the_tags();
+                                foreach ( $tags as $tag ) {
+                                    echo "<a title='{$tag->name}'>{$tag->name}</a>";
+                                }
+                            ?>
+                            </div>
+                            <?php echo '</div>';  ?>
+                            
+                            <?php 
+                                $galery = get_field('brands');
                                 
-                                if ( ! empty( $galery ) ) {
+                                if ( !is_null( $galery ) && !empty( $galery ) ) {
                                     echo '<div class="entry-galery">';
-                                    foreach ( $galery as $galery_html ) {
-                                        echo $galery_html;
+                                    foreach ( $galery as $imageID ) {
+                                        echo "<img decoding='async' src=".get_the_post_thumbnail_url($imageID,'small')." alt='Marca {$imageID}'>";
                                     }
                                     echo '</div>';
                                 };
@@ -208,55 +215,51 @@ function gasolweb_lista_imagenes_post(int $cantidad = -1, $categoria, $duplicado
 }
 
 function gasolweb_lista_de_gases(int $cantidad = -1, $categoria, $clase = "" ) {
-    ?>
-        <?php 
-            if ( isset($categoria) && ($categoria !== false) ) {
-                $args = array(
-                    'post_type' => 'post',
-                    'posts_per_page' => $cantidad,
-                    'cat' => $categoria
-                );
-                $hecho = new WP_Query($args);
-                while($hecho->have_posts()) {
-                    $hecho->the_post();
-                    ?>
-                    <div class="card-gases <?php echo $clase; ?>">
-                        <?php 
-                            if ( get_field('gas') ) {
-                                ?>
-                                    <div class="nomenclatura">
-                                        <?php str_NumbersToSub(get_field('gas')); ?>
-                                    </div>
-                                <?php 
-                            }
+    if ( isset($categoria) && ($categoria !== false) ) {
+        $args = array(
+            'post_type' => 'post',
+            'posts_per_page' => $cantidad,
+            'cat' => $categoria
+        );
+        $hecho = new WP_Query($args);
+        while($hecho->have_posts()) {
+            $hecho->the_post();
+            ?>
+            <div class="card-gases <?php echo $clase; ?>">
+                <?php 
+                    if ( get_field('gas') ) {
                         ?>
-                        <div class="contenido">
-                            <div class="titulo"><?php the_title(); ?></div>
-                            <div class="cuerpo">
-                                <?php the_content(); ?>
-                                <?php 
-                                if ( get_field('datasheet') ) {
-                                    ?>
-                                        <a class="hoja-datos" href="<?php the_field('datasheet'); ?>">Hoja de seguridad &darr;</a>
-                                    <?php 
-                                }
-                            ?>
+                            <div class="nomenclatura">
+                                <?php str_NumbersToSub(get_field('gas')); ?>
                             </div>
-                        </div>
-                        <div class="imagen">
-                            <?php
-                                if (has_post_thumbnail()) {
-                                    the_post_thumbnail('small', array('class' => 'imagen-card'));
-                                }
+                        <?php 
+                    }
+                ?>
+                <div class="contenido">
+                    <div class="titulo"><?php the_title(); ?></div>
+                    <div class="cuerpo">
+                        <?php the_content(); ?>
+                        <?php 
+                        if ( get_field('datasheet') ) {
                             ?>
-                        </div>
+                                <a class="hoja-datos" href="<?php the_field('datasheet'); ?>" target="_blank">Hoja de seguridad &darr;</a>
+                            <?php 
+                        }
+                    ?>
                     </div>
-                    <?php 
-                }
-                wp_reset_postdata();
-            }
-        ?>
-    <?php
+                </div>
+                <div class="imagen">
+                    <?php
+                        if (has_post_thumbnail()) {
+                            the_post_thumbnail('small', array('class' => 'imagen-card'));
+                        }
+                    ?>
+                </div>
+            </div>
+            <?php 
+        }
+        wp_reset_postdata();
+    }
 }
 
 function str_NumbersToSub(string $str) {
@@ -271,4 +274,33 @@ function str_NumbersToSub(string $str) {
         }
     }
     echo $respuesta;
+}
+
+function gasolweb_etiquetas_relacionadas( ) {
+    $grupo1 = get_field('related_1');
+    $grupo2 = get_field('related_2');
+    $grupo3 = get_field('related_3');
+    if (($grupo1 && $grupo1['destination_page']) || ($grupo2 && $grupo2['destination_page']) || ($grupo3 && $grupo3['destination_page']) ) {
+        echo "<div class='relacionados'>";
+        echo "<h4>Productos y servicios relacionados</h4>";
+        if ( $grupo1 && $grupo1['destination_page'] ) {
+            foreach ($grupo1['related_tags'] as $tagID) {
+                $tag = get_tag($tagID);
+                echo "<a href='{$grupo1["destination_page"]}' title='{$tag->name}'>{$tag->name}</a>";
+            }
+        }
+        if ( $grupo2 && $grupo2['destination_page'] ) {
+            foreach ($grupo2['related_tags'] as $tagID) {
+                $tag = get_tag($tagID);
+                echo "<a href='{$grupo2["destination_page"]}' title='{$tag->name}'>{$tag->name}</a>";
+            }
+        }
+        if ( $grupo3 && $grupo3['destination_page'] ) {
+            foreach ($grupo3['related_tags'] as $tagID) {
+                $tag = get_tag($tagID);
+                echo "<a href='{$grupo3["destination_page"]}' title='{$tag->name}'>{$tag->name}</a>";
+            }
+        }
+        echo "</div>";
+    }
 }

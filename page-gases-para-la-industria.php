@@ -59,6 +59,7 @@
             <section class="contenido-clases-gases">
                 <?php gasolweb_lista_de_gases( -1, get_field('clases_de_gases'), "lista-clases-gases");?>
             </section>
+            <?php gasolweb_etiquetas_relacionadas();?>
         </section>
     </div>
 

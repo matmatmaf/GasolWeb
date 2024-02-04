@@ -1,0 +1,106 @@
+.contenido-gases {
+	color: var(--texto);
+	.card-gases {
+		.titulo {
+			display: block;
+			color: var(--azulGasol);
+			font-size: 2.5rem;
+			font-weight: 600;
+		}
+		.nomenclatura {
+			color: var(--azulGasol);
+			font-size: 2.5rem;
+		}
+	}
+}
+.contenido-classes-gases {
+	color: var(--texto);
+}
+.card-gases {
+	.titulo {
+		display: none;
+	}
+}
+.contenido-clases-gases {
+	.card-gases {
+		.titulo {
+			display: block;
+		}
+	}
+}
+.card-gases.lista-gases {
+	>* {
+		margin-bottom: 18px;
+	}
+	.contenido > * {
+        margin-bottom: 18px;
+    }
+	padding-top: 18px;
+	border-top: 1px solid var(--blanco);
+	.hoja-datos {
+		font-style: italic;
+		margin: 10px 0px 0px 0px;
+	}
+	.cuerpo {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+}
+.card-gases.lista-gases:nth-child(-n+2) {
+    border-top: 0px;
+}
+
+.card-gases.lista-clases-gases {
+	>* {
+		margin-bottom: 18px;
+	}
+	.contenido {
+		>* {
+			margin-bottom: 18px;
+		}
+	}
+	grid-template-columns: 1fr;
+	.imagen {
+		display: none;
+	}
+	.titulo {
+		font-weight: 600;
+		font-size: 2.5rem;
+		color: var(--titulo);
+	}
+}
+
+@media (min-width: $screeeDesktop) {
+    .contenido-gases {
+		grid-column: 2;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 100px;
+	}
+	.contenido-clases-gases {
+		grid-column: 2;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 100px;
+	}
+    .card-gases {
+		display: grid;
+		grid-template-columns: 1fr 200px;
+		.imagen {
+			display: flex;
+			justify-content: center;
+			img {
+				max-height: 200px;
+				object-fit: contain;
+			}
+		}
+	}
+	.card-gases.lista-gases {
+		grid-template-columns: 80px 1fr 0px;
+		column-gap: 8px;
+		.titulo {
+			display: block;
+		}
+	}
+}

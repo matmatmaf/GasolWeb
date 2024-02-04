@@ -42,6 +42,7 @@
         <section class="contenido-pagina">
             <?php the_content(); ?>
             <?php gasolweb_lista_de_productos_y_servicios( -1, get_field('categorys_to_show'));?>
+            <?php gasolweb_etiquetas_relacionadas();?>
         </section>
     </div>
 
