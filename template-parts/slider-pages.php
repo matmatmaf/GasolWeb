@@ -1,11 +1,9 @@
 <?php
-    $pagesRef = get_field('pages_slider');
-    if ( $pagesRef ) {
+    $pagesID = get_field('pages_slider');
+    if ( !empty($pagesID) && $pagesID ) {
         $pages = array();
-        foreach ( $pagesRef as $pageURL) {
-            $url_components = parse_url($pageURL);
-            parse_str($url_components['query'], $params);
-            array_push($pages,get_post(intval($params['page_id']))); 
+        foreach ( $pagesID as $pageID ) {
+            array_push($pages,get_post($pageID)); 
         }
         if(!empty($pages)) {
         ?>
