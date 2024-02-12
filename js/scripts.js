@@ -76,32 +76,125 @@ function gasolInit() {
     if (slider) {
         const puntos = document.querySelectorAll('.slider .slider-tarjetas .punto');
         const menuItems = document.querySelectorAll('.slider .slider-navegacion .menu-item');
+        slider.dataset.mouseDownAt = "0";  
+        slider.dataset.percentage = "0";
+        let posicionActual = 0;
+        let posicionNueva = 0;
+        let indiceActual = 0;
+        let indiceMaximo = menuItems.length -1;
+        let mouseDownEvent = false;
         
         sliderActiveCard(0);
+
+        // Deshabilitar drag and drop
+        slider.addEventListener('dragstart', event => {
+            event.preventDefault();
+        });
         
-        // Recorrer TODOS los puntos
+        slider.addEventListener('drop', event => {
+            event.preventDefault();
+        });
+        
+        // Funciones al clickear sobre menu
         menuItems.forEach( ( item , i )=> {
             item.addEventListener('click', () => {
-                let posicion  = i;
-                let nuevaPos = posicion * -100;
-                slider.style.transform = `translateX(${ nuevaPos }%)`
-                
+                indiceActual = i;                
                 sliderActiveCard( i );
             })
         });
         
-        // Recorrer TODOS los puntos
+        // Funciones al clickear sobre puntos
         puntos.forEach( ( punto , i )=> {
             punto.addEventListener('click', () => {
-                let posicion  = i;
-                let nuevaPos = posicion * -100;
-                slider.style.transform = `translateX(${ nuevaPos }%)`
-                
+                indiceActual = i;                
                 sliderActiveCard( i );
             })
         });
+
+        // Funciones al hacer scroll en el carrusel
+        slider.addEventListener('touchstart', onHoldClick);
+        slider.addEventListener('touchend', onLeaveClick);
+        slider.addEventListener('touchmove', onMove);
+
+        slider.addEventListener('mousedown', onHoldClick);
+        slider.addEventListener('mouseup', onLeaveClick);
+        slider.addEventListener('mousemove', onMove);
         
+        function onHoldClick(event) {
+            // Veo donde hago click
+            if( event.clientX === undefined ){
+                slider.dataset.mouseDownAt = event.touches[0].clientX
+            }
+            else {
+                slider.dataset.mouseDownAt = event.clientX;
+            }
+            mouseDownEvent = true;
+        }
+
+        function onLeaveClick(event) {
+            let pointX = 0;
+            if( event.clientX === undefined ){
+                pointX = event.changedTouches[0].clientX
+            }
+            else {
+                pointX= event.clientX;
+            }
+            // Veo dede suelto el mouse
+            if (Math.abs(slider.dataset.mouseDownAt - pointX) < 10 ) {
+                // Si la posición entre donde se hace click y donde se suelta no hay mucha dierencia, se mantiene posición
+                sliderActiveCard( indiceActual );
+            }
+            else {
+                if (slider.dataset.mouseDownAt > pointX) {
+                    // Deslizo a izquierda
+                    if (indiceActual < indiceMaximo) {
+                        // puedo cambiar
+                        sliderActiveCard( ++indiceActual );
+                    }
+                    else {
+                        sliderActiveCard( indiceActual );
+                    }
+                }
+                else {  
+                    // Deslizo a derecha
+                    if (indiceActual > 0) {
+                        // puedo cambiar
+                        sliderActiveCard( --indiceActual );
+                    }
+                    else {
+                        sliderActiveCard( indiceActual );
+                    }
+                }
+            }
+
+            // Reinicio la posicion
+            slider.dataset.mouseDownAt = "0";  
+            slider.dataset.prevPercentage = slider.dataset.percentage;
+            mouseDownEvent = false;
+        }
+
+        function onMove(event) {
+            let pointX = 0;
+            if( event.clientX === undefined ){
+                pointX = event.touches[0].clientX
+            }
+            else {
+                pointX= event.clientX;
+            }
+            const mouseDelta = parseFloat(slider.dataset.mouseDownAt) - pointX;
+      
+            let percentage = (mouseDelta / slider.offsetWidth) * -100;
+            posicionNueva = Math.max(Math.min(posicionActual + percentage, 10), (indiceMaximo * -100) - 10 );
+            
+            if ( mouseDownEvent ) {
+                slider.style.transform = `translateX(${ posicionNueva }%)`
+            }
+        }
+
         function sliderActiveCard( indice ) {
+            posicionActual = indice * -100;
+            slider.style.transform = `translateX(${ posicionActual }%)`
+
             puntos.forEach( ( punto , i )=>{
                 menuItems[i].classList.remove('activo');
                 puntos[i].classList.remove('activo');
