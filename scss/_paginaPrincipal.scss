@@ -9,6 +9,8 @@
 	.portada {
 		z-index: -1;
 		width: 100%;
+		position: static;
+    	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0) var(--heightHeader));
 		.imgFondo {
 			max-height: unset;
 		}
@@ -40,11 +42,13 @@
 			.menu-principal {
 				> ul > li > a {
 					color: var(--blanco);
+					text-shadow: 3px 3px 6px var(--negro);
 				}
 			}
 			.contenedor-cabecera {
 				.logo {
 					svg {
+						filter: drop-shadow(3px 3px 6px var(--negro));
 						path {
 							fill: var(--blanco);
 						}
