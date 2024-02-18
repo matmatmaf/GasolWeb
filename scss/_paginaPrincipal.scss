@@ -5,6 +5,12 @@
 		top: 0;
 		z-index: 10;
 		background-color: transparent;
+		.contenedor-menu {
+			background: rgba(0,0,0,0.4);
+		}
+		.menu-principal .sub-menu {
+			background: rgba(0,0,0,0.6);
+		}
 	}
 	.portada {
 		z-index: -1;
@@ -40,9 +46,18 @@
 	.header.pagina-principal {
 		.barra-navegacion {
 			.menu-principal {
-				> ul > li > a {
-					color: var(--blanco);
-					text-shadow: 3px 3px 6px var(--negro);
+				.sub-menu {
+					background: var(--grisClaro);
+				}
+				> ul > li {
+					&:hover > a {
+						text-shadow: unset;
+					}
+					> a {
+						color: var(--blanco);
+						text-shadow: 3px 3px 6px var(--negro);
+						transition: text-shadow 0.5s ease-in-out;
+					}
 				}
 			}
 			.contenedor-cabecera {
@@ -56,6 +71,7 @@
 				}
 			}
 			.contenedor-menu {
+				background: transparent;
 				.menu-item-has-children {
 					> a {
 						&:after {
