@@ -47,11 +47,18 @@
         </div>
 
         <div class="portada portada-margin">
-            <div class="imgFondo">
+            <div class="imgFondo show-desktop">
                 <?php
                 if (has_post_thumbnail()) {
                     the_post_thumbnail('full', array('class' => 'imagen-portada'));
                 }
+                ?>
+            </div>
+            <div class="imgFondo show-mobile">
+                <?php
+                    if (get_field('thumbnail_mobile')) {
+                        echo wp_get_attachment_image( get_field('thumbnail_mobile'), 'medium_large' );
+                    }
                 ?>
             </div>
             <div class="textoPortada">

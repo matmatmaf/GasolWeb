@@ -150,6 +150,15 @@ ul {
 	}
 }
 
+.show-mobile {
+	// Solo se muestra en vista movile
+} 
+
+.show-desktop {
+	// Solo se muestra en vista escritorio
+	display: none;
+} 
+
 .burger-menu.cross{
 	.bar{
 	  &:nth-of-type(1){
@@ -313,6 +322,15 @@ ul {
 
 
 @media (min-width: $screeeDesktop) {
+	.show-mobile {
+		// Solo se muestra en vista movile
+		display: none;
+	} 
+
+	.show-desktop {
+		// Solo se muestra en vista escritorio
+		display: block;
+	} 
 	.contenido-template {
 		margin: 0px;
 		margin-bottom: 40px;
