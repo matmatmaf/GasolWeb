@@ -6,6 +6,8 @@
 			color: var(--texto);
 			background-color: var(--grisClaro);
 			padding: 0px 10px;
+			text-align: center;
+			max-width: 85%;
 			&::before {
 				content: '';
 				position: absolute;
