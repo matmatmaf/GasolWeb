@@ -45,7 +45,7 @@
                                                 </div>
                                             </div>
                                             <div class="enlace">
-                                                <a href="<?php echo $page->guid; ?>">Conoce mas haciendo clik aquí &#8599;</a>
+                                                <a href="<?php echo $page->guid; ?>">Conoce mas haciendo clik aquí <div class="arrow"></div></a>
                                             </div>
                                         </div>
                                         <?php

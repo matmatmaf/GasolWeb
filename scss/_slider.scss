@@ -95,20 +95,21 @@
 					position: absolute;
 					top: 0;
 					height: 100%;
-					max-width: 60%;
 					display: flex;
 					flex-direction: column;
 					flex-wrap: nowrap;
 					justify-content: space-around;
-					margin-left: 4%;
+					margin: 0 8%;
+					padding: 20px 0;
 					>* {
 						color: var(--blanco);
 					}
 					.categoria {
+						font-size: 20px;
 						text-transform: uppercase;
 					}
 					.titulo {
-						font-size: 36px;
+						font-size: 40px;
 						font-weight: 700;
 					}
 					.cuerpo {
@@ -120,9 +121,19 @@
 					}
 					.enlace {
 						a {
-							padding: 8px;
 							border: 1px solid var(--blanco);
+							padding: 8px;
 							color: var(--blanco);
+							font-weight: 600;
+							display: inline-flex;
+							.arrow {
+								width: 12px;
+								height: 12px;
+								border-top: 1px solid var(--blanco);
+								border-right: 1px solid var(--blanco);
+								background: linear-gradient(-45deg, rgba(0,0,0,0) calc(50% - 1px), var(--blanco) calc(50%), rgba(0,0,0,0) calc(50% + 1px));
+								margin-left: 10px;
+							}
 						}
 					}
 				}
@@ -141,7 +152,7 @@
 					img {
 						object-fit: cover;
 						object-position: center center;
-						border-radius: 10px;
+						border-radius: 30px;
 						width: 100%;
 						min-height: 400px;
 					}
@@ -175,6 +186,21 @@
 		.slider-tarjetas {
 			.card-page-list {
 				.card-page {
+					.contenido {
+						max-width: 60%;
+						margin: 0 4%;
+						.categoria {
+							font-size: 24px;
+						}
+						.titulo {
+							font-size: 55px;
+						}
+						.cuerpo {
+							p {
+								font-size: 22px;
+							}
+						}
+					}
 					.imagen-secundaria {
 						display: block;
 					}
