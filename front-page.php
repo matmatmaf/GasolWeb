@@ -77,7 +77,7 @@
         </section>
 
         <div class="footer-template">
-            <?php get_template_part('template-parts/footer-template-clientes',null,array('class'=>'en-grilla')); ?>
+            <?php get_template_part('template-parts/footer-template-clientes'); ?>
         </div>
     </main>
 
