@@ -12,14 +12,13 @@
 	img {
 		height: var(--heightPortada);
 		width: 100%;
-		object-fit: none;
 		object-position: center center;
 	}
 	.titulo {
 		color: var(--grisOscuro);
-		font-size: 4rem;
+		font-size: 40px;
 		font-weight: 600;
-		line-height: 3rem;
+		line-height: 44px;
 	}
 	.clase {
 		color: var(--grisOscuro);
@@ -27,7 +26,8 @@
 		margin-bottom: 8px;
 	}
 	.textoPortada {
-		padding: 0px var(--marginContainerMovile);
+		width: 75%;
+		margin: 0 auto;
 	}
 }
 .portada.portada-pagina {

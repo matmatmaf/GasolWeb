@@ -10,6 +10,8 @@
 		.nomenclatura {
 			color: var(--azulGasol);
 			font-size: 2.5rem;
+			max-width: 80px;
+			min-width: 70px;
 		}
 	}
 }
@@ -72,17 +74,11 @@
 }
 
 @media (min-width: $screeeDesktop) {
-    .contenido-gases {
+    .contenido-gases, .contenido-clases-gases {
 		grid-column: 2;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		column-gap: 100px;
-	}
-	.contenido-clases-gases {
-		grid-column: 2;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		column-gap: 100px;
+		column-gap: 4%;
 	}
     .card-gases {
 		display: grid;
@@ -97,8 +93,7 @@
 		}
 	}
 	.card-gases.lista-gases {
-		grid-template-columns: 80px 1fr 0px;
-		column-gap: 8px;
+		grid-template-columns: auto 1fr 0px;
 		.titulo {
 			display: block;
 		}
