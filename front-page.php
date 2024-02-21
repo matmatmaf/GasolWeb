@@ -76,11 +76,13 @@
             <?php gasolweb_carousel(-1, array(),'gasol_marcas','Trabajamos con marcas lideres');?>
         </section>
 
-        <section class="contenido-template contenido-pagina-principal">
-            <?php while (have_posts()) : the_post(); ?>
+        <section class="contenido-template">
+            <div class="contenido-pagina-principal">
+                <?php while (have_posts()) : the_post(); ?>
                 <h2><?php the_title(); ?></h2>
                 <?php the_content(); ?>
-            <?php endwhile; ?>
+                <?php endwhile; ?>
+            </div>
         </section>
 
         <div class="footer-template">

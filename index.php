@@ -98,26 +98,28 @@
                 </H1>
             </section>
 
-            <section class="contenido-template contenido-pagina-principal">
-                <?php while (have_posts()) : the_post(); ?>
+            <section class="contenido-template">
+                <div class="contenido-pagina-principal">
+                    <?php while (have_posts()) : the_post(); ?>
                     <h2>
                         <?php
                            switch ($object->taxonomy) {
-                                case "category":
-                                    echo "Categoria: ";
-                                    break;
+                               case "category":
+                                echo "Categoria: ";
+                                break;
                                 case "post_type":
                                     echo "Entrada: ";
                                     break;
-                                case "post_tag":
-                                    echo "Etiqueta: ";
-                                    break;
-                            }
-                        ?>
+                                    case "post_tag":
+                                        echo "Etiqueta: ";
+                                        break;
+                                    }
+                                    ?>
                         <?php the_title(); ?>
                     </h2>
                     <?php the_content(); ?>
-                <?php endwhile; ?>
+                    <?php endwhile; ?>
+                </div>
             </section>
         <?php else: ?>
             <section class="contenido-template contenido-pagina-principal">
