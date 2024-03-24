@@ -83,6 +83,8 @@ function gasolInit() {
         let indiceActual = 0;
         let indiceMaximo = menuItems.length -1;
         let mouseDownEvent = false;
+        let autoslide = null;
+        let tiemSlider = 3500;
         
         sliderActiveCard(0);
 
@@ -100,6 +102,7 @@ function gasolInit() {
             item.addEventListener('click', () => {
                 indiceActual = i;                
                 sliderActiveCard( i );
+                startAutoSlider();
             })
         });
         
@@ -108,6 +111,7 @@ function gasolInit() {
             punto.addEventListener('click', () => {
                 indiceActual = i;                
                 sliderActiveCard( i );
+                startAutoSlider();
             })
         });
 
@@ -119,8 +123,12 @@ function gasolInit() {
         slider.addEventListener('mousedown', onHoldClick);
         slider.addEventListener('mouseup', onLeaveClick);
         slider.addEventListener('mousemove', onMove);
+        slider.addEventListener('mouseover', stopAutoSlider);
+        slider.addEventListener('mouseleave', startAutoSlider);
         
         function onHoldClick(event) {
+            // Detengo el scroll automatico
+            stopAutoSlider();
             // Veo donde hago click
             if( event.clientX === undefined ){
                 slider.dataset.mouseDownAt = event.touches[0].clientX
@@ -139,8 +147,8 @@ function gasolInit() {
             else {
                 pointX= event.clientX;
             }
-            // Veo dede suelto el mouse
-            if (Math.abs(slider.dataset.mouseDownAt - pointX) < 10 ) {
+            // Veo donde suelto el mouse
+            if (Math.abs(slider.dataset.mouseDownAt - pointX) < 20 ) {
                 // Si la posición entre donde se hace click y donde se suelta no hay mucha dierencia, se mantiene posición
                 sliderActiveCard( indiceActual );
             }
@@ -171,6 +179,9 @@ function gasolInit() {
             slider.dataset.mouseDownAt = "0";  
             slider.dataset.prevPercentage = slider.dataset.percentage;
             mouseDownEvent = false;
+
+            // Arranco el scroll automatico
+            startAutoSlider();
         }
 
         function onMove(event) {
@@ -192,6 +203,14 @@ function gasolInit() {
         }
 
         function sliderActiveCard( indice ) {
+            if(indice > indiceMaximo){
+                indiceActual = indiceMaximo;
+            }
+            else if(indice < 0){
+                indiceActual = 0;
+            }
+            indice = indiceActual;
+
             posicionActual = indice * -100;
             slider.style.transform = `translateX(${ posicionActual }%)`
 
@@ -202,6 +221,25 @@ function gasolInit() {
             menuItems[indice].classList.add('activo');
             puntos[indice].classList.add('activo');
         }
+
+        function startAutoSlider() {
+            clearInterval(autoslide);
+            autoslide = setInterval(function(){
+                            if(indiceActual == indiceMaximo){
+                                indiceActual = 0;
+                            }
+                            else{
+                                indiceActual++;
+                            }
+                            sliderActiveCard( indiceActual );
+                        }, tiemSlider);
+        }
+
+        function stopAutoSlider() {
+            clearInterval(autoslide);
+        }
+
+        startAutoSlider();
     }
         
 
